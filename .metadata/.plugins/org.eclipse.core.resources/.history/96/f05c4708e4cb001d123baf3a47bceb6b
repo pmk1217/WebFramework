@@ -1,0 +1,5 @@
+ackage com.co.kr.vo;
+
+public class LoginVo {
+
+}

@@ -1,0 +1,16 @@
+<html xmlns:th="//www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="EUC-KR">
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width">
+<link rel="stylesheet" type="text/css" th:href="@{css/jquery-ui-1.12.1.css}">
+<link rel="stylesheet" th:href="@{css/jsp-test.css}" type="text/css">
+		<title> spring boot study </title>		
+	</head>
+	<body>
+		hello world
+	</body>
+</html>

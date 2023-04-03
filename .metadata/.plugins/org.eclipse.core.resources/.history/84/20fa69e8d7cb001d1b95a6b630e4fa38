@@ -1,0 +1,25 @@
+package com.co.kr;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class SpringExApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(SpringExApplication.class, args);
+	}
+	<!-- https://mvnrepository.com/artifact/org.apache.commons/commons-dbcp2 -->
+        <dependency>
+          <groupId>org.apache.commons</groupId>
+          <artifactId>commons-dbcp2</artifactId>
+          <version>2.8.0</version>
+        </dependency>
+<!-- https://mvnrepository.com/artifact/org.springframework.boot/spring-boot-starter-jdbc -->
+				<dependency>
+				    <groupId>org.springframework.boot</groupId>
+				    <artifactId>spring-boot-starter-jdbc</artifactId>
+				    <version>3.0.4</version>
+				</dependency>
+
+}
