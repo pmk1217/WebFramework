@@ -10,6 +10,7 @@ import org.thymeleaf.spring5.SpringTemplateEngine;
 import org.thymeleaf.spring5.view.ThymeleafViewResolver;
 import org.thymeleaf.templateresolver.ClassLoaderTemplateResolver;
 
+import lombok.var;
 import nz.net.ultraq.thymeleaf.layoutdialect.LayoutDialect;
 
 @Configuration	
