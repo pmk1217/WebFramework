@@ -1,0 +1,13 @@
+package com.co.kr.util;
+
+import java.util.HashMap;
+
+import javax.servlet.http.HttpServletRequest;
+
+public class Pagination {
+	
+	public static Map<String,Object> pagination(int totalcount, HttpServletRequest request) {
+		Map<String,Object> map = new HashMap<String,Object>();
+		
+	}
+}

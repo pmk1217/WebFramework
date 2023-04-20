@@ -1,0 +1,11 @@
+<html xmlns:th="//www.thymeleaf.org">
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="EUC-KR">
+		<title> spring boot study </title>		
+	</head>
+	<body>
+		hello world
+	</body>
+</html>
