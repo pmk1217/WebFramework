@@ -1,4 +1,5 @@
 <div  class="userInfo" th:if=${session.id}>
+<span> mac 주소 : </span><span th:text="${session.mac}"> </span> <span> / </span>
     <span th:text="${session.id}"></span><span> 님 / </span>
     <span th:text="${session.mbLevel}"></span><span> 레벨</span>
     <button type="button">
@@ -6,7 +7,7 @@
     </button>
 </div>
 
-<div class="title" style="color:#00a2be">사용자 수정</div>
+<div class="title" style="color:#00a2be">회원 수정</div>
 
 <form role="form" action="update" method="post">
     <div class="section form">

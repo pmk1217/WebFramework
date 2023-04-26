@@ -20,7 +20,10 @@ import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.co.kr.domain.BoardListDomain;
+import com.co.kr.domain.GalleryDomain;
+import com.co.kr.domain.GalleryFileDomain;
 import com.co.kr.domain.LoginDomain;
+import com.co.kr.service.GalleryService;
 import com.co.kr.service.UploadService;
 import com.co.kr.service.UserService;
 import com.co.kr.util.CommonUtils;
@@ -39,6 +42,9 @@ public class UserController {
 	
 	@Autowired
 	private UploadService uploadService;
+	
+	@Autowired
+	private GalleryService galleryService;
 
 	@RequestMapping(value = "board")
 	public ModelAndView login(LoginVO loginDTO, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -65,9 +71,11 @@ public class UserController {
 			
 				//현재아이피 추출
 				String IP = CommonUtils.getClientIP(request);
+				String MAC = CommonUtils.getMacAddress();
 				
 				//session 저장
 				session.setAttribute("ip",IP);
+				session.setAttribute("mac", MAC);
 				session.setAttribute("id", loginDomain.getMbId());
 				session.setAttribute("mbLevel", loginDomain.getMbLevel());
 						
@@ -91,6 +99,21 @@ public class UserController {
 				mav.setViewName("board/boardList.html");
 				return mav; 
 			}
+			
+			// 갤러리 리스트
+			@RequestMapping(value = "gyList")
+			public ModelAndView gyList() { 
+				ModelAndView mav = new ModelAndView();
+				HashMap<String, Object> map = new HashMap<String, Object>();
+				List<GalleryDomain> items = galleryService.galleryList();
+				List<GalleryFileDomain> gyfileList = galleryService.gyfileList();
+				System.out.println("items ==> "+ items);
+				mav.addObject("items", items);
+				System.out.println("gyfiles ==> "+ gyfileList);
+				mav.addObject("gyfiles", gyfileList);
+				mav.setViewName("gallery/galleryList.html");
+				return mav; 
+						}
 			
 			//대시보드 리스트 보여주기
 			@GetMapping("mbList")

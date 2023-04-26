@@ -3,7 +3,7 @@
     <header th:fragment="headerFragment">
        <div class="lnb">
            <div class="logo">
-                <a th:href="@{bdList}"> <span>SpringBoot</span> <span>STUDY</span></a>
+                <a th:href="@{bdList}" style="text-align: center"> <span></span></a>
            </div>
            
            <div class="useInfo">
@@ -13,10 +13,13 @@
            <ul class="nav">
                <th:block>
 <               <th:block th:if="${session.mbLevel}>3"> 
-                   <li class="on"><a class="menu1" th:href="@{mbList(page=1)}">멤버정보</a></li>
+                   <li class="on"><a class="menu1" th:href="@{mbList(page=1)}">회원정보</a></li>
                </th:block>
                <th:block>
-                   <li class="on"><a class="menu1" th:href="@{bdList}">보드정보</a></li>
+                   <li class="on"><a class="menu1" th:href="@{bdList}">자유 게시판</a></li>
+               </th:block>
+               <th:block>
+                   <li class="on"><a class="menu1" th:href="@{gyList}"> 갤러리 </a></li>
                </th:block>
            </ul>
        </div>

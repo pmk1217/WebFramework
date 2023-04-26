@@ -16,24 +16,24 @@
         }
     </script>
     
-    <title>Spring boot</title>
+    <title>Love Pet</title>
 </head>
 <body>
     <div class="main">
         <div class="container">
-            <div class="logo">
-                <a href="/main"> <span>SpringBoot</span> <span>STUDY</span></a>
+            <div class="logo" style="text-align: center; margin-top:20px;">
+                <a href="/main"> <span>SpringBoot</span></a>
             </div>
             <div class="content">
-                <div class="tit">SpringBoot STUDY</div>
+               <!-- <div class="tit">환영합니당</div> --> 
                 <div class="form">   
                     <form   id="loginForm" role="form" action="board" method="post">
-				        <input type="text" name ="id" id="id" placeholder="id" required> 
-				        <input type="text" name="pw" id="pw" placeholder="pw" required> 
-				        <button type="submit" id="submit">LOGIN</button>
+				        <input type="text" name ="id" id="id" placeholder="ID" required> 
+				        <input type="text" name="pw" id="pw" placeholder="PW" required> 
+				        <button type="submit" id="submit">로그인</button>
 				    </form>
 				    <ul>
-				        <li class="signin"><a  th:href="@{signin}">SIGNIN</a></li>
+				        <li class="signin"><a  th:href="@{signin}">회원가입</a></li>
 				    </ul>
 				    
                 </div>

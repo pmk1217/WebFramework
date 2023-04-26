@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+                        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.co.kr.mapper.GalleryMapper">
+
+	<!--select all-->
+	<select id="galleryList" resultType="com.co.kr.domain.GalleryDomain">
+	  SELECT gy_seq, mb_id, gy_title, gy_content, gy_create_at, gy_update_at
+	  FROM jsp.gallery order by gy_update_at desc
+	</select>
+	
+	<select id="gyfileList" resultType="com.co.kr.domain.GalleryFileDomain">
+	  SELECT gy_seq, mb_id, gy_original_file_name, gy_new_file_name, gy_file_path, gy_file_size
+	  FROM jsp.gyfiles order by gy_file_size
+	</select>
+	
+
+	<!-- content insert -->
+	<insert id="contentUpload" parameterType="com.co.kr.domain.GalleryContentDomain"
+	useGeneratedKeys="true"
+        keyProperty="gySeq" keyColumn="gy_seq">
+	
+        INSERT INTO jsp.gallery (
+            mb_id,   
+			gy_title,                         
+			gy_content  
+        )
+        VALUES (
+            #{mbId},
+            #{gyTitle},
+            #{gyContent}
+        )
+	</insert>
+	
+	<!-- file insert -->
+	<insert id="fileUpload" parameterType="com.co.kr.domain.GalleryFileDomain">
+        INSERT INTO jsp.gyfiles (
+            gy_seq,
+            mb_id,   
+            gy_original_file_name,                         
+            gy_new_file_name,                      
+            gy_file_path,                                   
+            gy_file_size
+        )
+        VALUES (
+            #{gySeq},
+            #{mbId},
+            #{gyOriginalFileName},
+            #{gyNewFileName},
+            #{gyFilePath},
+            #{gyFileSize}
+        )
+    </insert>
+    
+    <!-- Content update -->
+    <update id="gyContentUpdate" parameterType="com.co.kr.domain.GalleryContentDomain">
+        UPDATE jsp.gallery SET
+                gy_seq=#{gySeq},
+                mb_id=#{mbId},
+                gy_title=#{gyTitle},
+                gy_content=#{gyContent}, 
+                gy_update_at=now()  
+        WHERE gy_seq=#{gySeq}
+    </update>
+	
+	<!-- file update -->
+    <update id="gyFileUpdate" parameterType="com.co.kr.domain.GalleryFileDomain">
+        UPDATE jsp.gyfiles SET
+                gy_seq=#{gySeq},
+                mb_id=#{mbId},
+                gy_original_file_name=#{gyOriginalFileName},
+                gy_new_file_name=#{gyNewFileName}, 
+                gy_file_path=#{gyFilePath},
+                gy_file_size=#{gyFileSize}
+        WHERE gy_seq=#{gySeq}
+    </update>
+	
+	<!-- Content delete -->
+    <delete id="gyContentRemove" parameterType="hashMap">
+       DELETE FROM jsp.gallery WHERE gy_seq=#{gySeq}
+    </delete>
+	<!-- file delete -->
+    <delete id="gyFileRemove" parameterType="com.co.kr.domain.GalleryFileDomain">
+	    DELETE FROM jsp.gyfiles WHERE gy_new_file_name = #{gyNewFileName}
+	</delete>
+	
+	<!-- content -->
+	<select id="gallerySelectOne" resultType="com.co.kr.domain.GalleryDomain" parameterType="map">
+	    SELECT gy_seq, mb_id, gy_title, gy_content, gy_create_at, gy_update_at
+	    FROM jsp.gallery where gy_seq = #{gySeq}
+	</select>
+
+	<!-- file -->
+	<select id="gallerySelectOneFile" resultType="com.co.kr.domain.GalleryFileDomain" parameterType="map">
+	    SELECT gy_seq, mb_id, gy_original_file_name, gy_new_file_name, gy_file_path, gy_file_size
+	    FROM jsp.view_gallery where gy_seq = #{gySeq}
+	</select>
+	
+	
+</mapper>

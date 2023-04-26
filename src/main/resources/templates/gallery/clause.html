@@ -7,8 +7,8 @@
     </button>
 </div>
 
-<div class="title" style="color:#00a2be">자유 게시판</div>
-<form role="form" action="upload" method="post" enctype="multipart/form-data">
+<div class="title" style="color:#00a2be">갤러리</div>
+<form role="form" action="gyupload" method="post" enctype="multipart/form-data">
     <div class="section form">
        <table>
         <colgroup>
@@ -31,9 +31,9 @@
                 </td>
             </tr>
             <tr> 
-               <th><label for="file">첨부파일</label></th>
+               <th><label for="gyfile">첨부파일</label></th>
                 <td>
-                    <input type="file" id="file" name="files" multiple />
+                    <input type="file" id="gyfile" name="gyfiles" multiple required/>
                 </td>
             </tr>
         </tbody>

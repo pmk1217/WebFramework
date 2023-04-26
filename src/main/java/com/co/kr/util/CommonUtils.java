@@ -10,8 +10,13 @@ import org.springframework.web.servlet.ModelAndView;
 
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.net.InetAddress;
+import java.net.NetworkInterface;
+import java.net.SocketException;
+import java.net.UnknownHostException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.Iterator;
 
 @Component
 public class CommonUtils {
@@ -47,6 +52,33 @@ public class CommonUtils {
 			}
 			return ip;
 		};
+		
+		public static String getMacAddress() {
+			String result = "";
+			InetAddress address;
+			
+			try {
+				address = InetAddress.getLocalHost();
+				
+				NetworkInterface network = NetworkInterface.getByInetAddress(address);
+				byte[] mac = network.getHardwareAddress();
+				
+				StringBuilder sb = new StringBuilder();
+				for (int i = 0; i < mac.length; i++) {
+					sb.append(String.format("%02X%s", mac[i], (i < mac.length - 1) ? "-" : ""));
+				}
+					result = sb.toString();
+			} catch (UnknownHostException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			} catch (SocketException e) {
+				// TODO: handle exception
+				e.printStackTrace();
+			}
+			
+			return result;
+		}
+		
 		
 		// auth redirect
 		public static void redirect(String alertText, String redirectPath, HttpServletResponse response) throws IOException {

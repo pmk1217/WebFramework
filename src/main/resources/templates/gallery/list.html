@@ -1,0 +1,55 @@
+<div class="section list">
+    <table>
+        <th:block th:if="${items}">
+            <colgroup>
+                <col style="width: 20%"/>
+                <col style="width: 50%"/>
+                <col style="width: 30%"/>
+            </colgroup>
+            
+            <tbody>
+              <tr th:each="item : ${items}">
+                  <td><a th:text="${item.gyTitle}" th:href="@{/gydetail(gySeq = ${item.gySeq})}"></a></td>
+                  <td>
+                  <th:block th:each="gyfile : ${gyfiles}" th:if="${gyfiles}">
+                  <th:block th:if="${item.gySeq} == ${gyfile.gySeq}">
+                  <img id="imgId" th:src="@{${gyfile.gyNewFileName}}" width="200px" height="200px" />			 
+          		 </th:block>
+          		 </th:block>
+          		 </td>
+                  <td th:text="|${item.mbId} / ${item.gyCreateAt}|" >
+                  <th:block th:text="${item.gyCreateAt}">
+                  </th:block>
+                  </td>
+                  
+              </tr>
+	        </th:block>   
+        </tbody>
+    </table>
+    
+    <th:block th:if="${gydetail}">   
+        <h1 style="padding: 30px 0;" th:text="${gydetail.gyTitle}"></h1>
+        <div style="text-align: right;">
+            <span style="color: #00a2be;">글번호 </span> <span th:text="${gydetail.gySeq}"></span> <span style="color: #00a2be"> | </span>
+            <span style="color: #00a2be">글쓴이 </span> <span th:text="${gydetail.mbId}"></span> <span style="color: #00a2be"> | </span> 
+            <span th:text="${gydetail.gyCreateAt}"></span> <span style="color: #00a2be"> | </span> 
+            <span th:text="${gydetail.gyUpdateAt}"></span> 
+        </div>
+        
+        <div>
+            <p style="padding: 30px 0;" th:text="${gydetail.gyContent}"></p>
+            <ul th:if="${gyfiles}"  th:each="gyfile : ${gyfiles}" style="display: inline-block;margin-bottom: 5px;">
+                <li> <img id="imgId" th:src="@{${gyfile.gyNewFileName}}" alt="첨부이미지" height="280" /></li>
+            </ul>
+        </div>
+
+        <div style="padding: 30px 0; text-align:right;">
+        <th:block th:if="${gydetail.mbId == session.id}">
+		        <a th:href="@{/gyedit(gySeq = ${gydetail.gySeq})}"><button>수정</button></a>
+            <a th:href="@{/gyremove(gySeq = ${gydetail.gySeq})}"><button>삭제</button></a>
+            </th:block>
+            <a th:href="@{gyList}"><button style="background-color: #00a2be; color: white; margin-left: 20px">목록으로</button></a>
+        </div>
+        
+    </th:block>
+</div>

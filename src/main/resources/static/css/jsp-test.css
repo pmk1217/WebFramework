@@ -9,9 +9,9 @@ body,
 .wrapper {position:relative;min-width:1200px}
 
 .main {display:flex;justify-content:center;align-items:center}
-.main .container {min-width:500px;margin:40px;padding:40px;background:#221e1f}
+.main .container {min-width:500px;margin:35px;padding:35px;background:#221e1f; border-radius:10px}
 .main .logo {padding:0}
-.main .content {padding:80px 0 40px}
+.main .content {padding:15px 0 30px}
 .main .content .tit {text-align:center;font-size:30px;color:#fff}
 .main .content .nav {width:400px;margin:10px auto;text-align:center}
 .main .content .nav span {display:inline-block;font-size:16px;color:#999}
@@ -24,10 +24,10 @@ body,
 .main .content li.signin a {color:#fff; }
 
 
-.logo {padding:30px;background:#221e1f}
+.logo {padding:10px;background:#221e1f;}
 .logo a {display:block}
-.logo a span {display:inline-block;height:40px;vertical-align:middle;font-weight:600;font-size:22px;color:#fff;box-sizing:border-box}
-.logo a span:first-child {overflow:hidden;width:47px;text-indent:-999px;background:url('../images/logo.png') no-repeat 0 0}
+.logo a span {display:inline-block;height:100px;vertical-align:middle;font-weight:600;font-size:65px;color:#fff;box-sizing:border-box}
+.logo a span:first-child {overflow:hidden; width:150px;text-indent:-999px;background:url('../images/logo_white.png') no-repeat 0 0}
 .logo a span:last-child {padding-top:12px}
 
 .lnb {position:fixed;top:0;bottom:0;width:220px;background:#353535;z-index:100}

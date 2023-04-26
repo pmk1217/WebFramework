@@ -1,9 +1,0 @@
-package com.co.kr.util;
-
-public class CommonUtils {
-	public static String currentTime() {
-		SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMddHHmmss", Locale.KOREA);
-		Date currentDate = new Date();
-		return sdf.format(currentDate);
-	}
-}

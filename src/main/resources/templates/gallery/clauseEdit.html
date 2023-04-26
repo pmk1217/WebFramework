@@ -7,8 +7,8 @@
     </button>
 </div>
 
-<div class="title" style="color:#00a2be">자유 게시판</div>
-<form role="form" th:object=${fileListVO} th:action="@{editSave}" method="post" enctype="multipart/form-data">
+<div class="title" style="color:#00a2be">갤러리</div>
+<form role="form" th:object=${fileListVO} th:action="@{gyeditSave}" method="post" enctype="multipart/form-data">
     <div class="section form">
        <table>
         <colgroup>
@@ -32,10 +32,10 @@
                 </td>
             </tr>
             <tr> 
-               <th><label for="file">첨부파일</label></th>
+               <th><label for="gyfile">첨부파일</label></th>
                 <td>
-                    <input type="file" id="file" name="files" multiple />
-                    <span style="color: #00a2be" th:text="'*새로 파일첨부시 기존 파일은 삭제됩니다.(첨부된 파일 : '+ ${fileLen} + '개)'"></span>
+                    <input type="file" id="gyfile" name="gyfiles" multiple />
+                    <span style="color: #00a2be" th:text="'*새로 파일첨부시 기존 파일은 삭제됩니다.(첨부된 파일 : '+ ${gyfileLen} + '개)'"></span>
                 </td>
             </tr>
         </tbody>

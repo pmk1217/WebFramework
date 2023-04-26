@@ -15,7 +15,7 @@
         keyProperty="bdSeq" keyColumn="bd_seq">
 	
         INSERT INTO jsp.board (
-            mb_id,   
+                        mb_id,   
 						bd_title,                         
 						bd_content  
         )

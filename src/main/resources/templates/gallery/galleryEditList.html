@@ -14,13 +14,13 @@
 </th:block>
 
 <head>
-    <title>자유 게시판</title>
+    <title>갤러리</title>
 </head>
 
 <div th:if=${session.id} layout:fragment="content">
     <div class="container">
-        <th:block th:include="board/clauseEdit.html"></th:block>
-        <th:block th:include="board/list.html"></th:block>
+        <th:block th:include="gallery/clauseEdit.html"></th:block>
+        <th:block th:include="gallery/list.html"></th:block>
     </div>
 </div>
 
