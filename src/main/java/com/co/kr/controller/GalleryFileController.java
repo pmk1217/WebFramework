@@ -43,10 +43,9 @@ public class GalleryFileController {
 		
 		ModelAndView mav = new ModelAndView();
 		int gySeq = galleryService.gyfileProcess(fileListVO, request, httpReq);
-		fileListVO.setContent(""); //초기화
-		fileListVO.setTitle(""); //초기화
+		fileListVO.setContent(""); 
+		fileListVO.setTitle(""); 
 		
-		// 화면에서 넘어올때는 gySeq String이라 string으로 변환해서 넣어즘
 		mav = gySelectOneCall(fileListVO, String.valueOf(gySeq),request);
 		mav.setViewName("gallery/galleryList.html");
 		return mav;
