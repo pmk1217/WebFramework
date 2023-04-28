@@ -1,15 +1,22 @@
 @charset "utf-8";
 @import url("reset.css");
 
+body {
+	background:#eee;
+}
 
 html,
 body,
 .wrapper,
-.main {width:100%;height:100%;background:#eee}
+.main {width:100%;height:100%}
+.main {
+	background-image:url('../images/back.jpg');
+	background-repeat: repeat-y;
+}
 .wrapper {position:relative;min-width:1200px}
 
 .main {display:flex;justify-content:center;align-items:center}
-.main .container {min-width:500px;margin:35px;padding:35px;background:#221e1f; border-radius:10px}
+.main .container {min-width:500px;margin:35px;padding:35px;background:#221e1f; border-radius:10px; opacity:0.85}
 .main .logo {padding:0}
 .main .content {padding:15px 0 30px}
 .main .content .tit {text-align:center;font-size:30px;color:#fff}
@@ -34,7 +41,7 @@ body,
 .lnb .nav {padding:20px 0}
 .lnb .nav li a {display:block;padding:12px 35px;font-size:16px;color:#fff}
 .lnb .nav li a.on {font-weight:600;color:#fff}
-.lnb .nav li a:hover:not(.on) {color:#fff}
+.lnb .nav li a:hover{color:#bebebe}
 .lnb .nav li a.arrow {position:relative} 
 .lnb .nav li a.arrow::after {content:'';position:absolute;top:12px;right:30px;display:block;width:24px;height:24px;background-image:url('../images/icon_lnb_arrow.png');background-repeat:no-repeat;background-position:0 0}
 .lnb .nav li a.arrow.on::after {background-position-y:-24px}
@@ -57,7 +64,7 @@ body,
 .container {margin-left:220px;padding:40px}
 .userInfo {text-align:right}
 .userInfo button {margin-left:5px;padding:4px 8px;color:#fff;border-radius:4px;background:#00a2be}
-.title {font-weight:600;font-size:22px; color:white; text-align-last: center;}
+.title {font-weight:600;font-size:30px; color:white; text-align-last: center;}
 .section {margin-top:20px;padding:20px 30px;background:#fff}
 
 table {width:100%}

@@ -179,8 +179,10 @@ public class GalleryFileController {
 	public ModelAndView gyListCall() {
 		ModelAndView mav = new ModelAndView();
 		List<GalleryDomain> items = galleryService.galleryList();
+		List<GalleryFileDomain> gyfileList = galleryService.gyfileList();
 		mav.addObject("items", items);
-		return mav;
+		mav.addObject("gyfiles", gyfileList);
+		return mav; 
 	}
 }
 	

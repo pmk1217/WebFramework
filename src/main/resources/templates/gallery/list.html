@@ -1,28 +1,32 @@
 <div class="section list">
-    <table>
+    <table style="display: inline-block;">
         <th:block th:if="${items}">
-            <colgroup>
-                <col style="width: 20%"/>
-                <col style="width: 50%"/>
-                <col style="width: 30%"/>
-            </colgroup>
+
             
-            <tbody>
-              <tr th:each="item : ${items}">
-                  <td><a th:text="${item.gyTitle}" th:href="@{/gydetail(gySeq = ${item.gySeq})}"></a></td>
+            <tbody th:each="item : ${items}" style="display: inline-block; margin-left: 13px; margin-bottom: 40px; border: 1px solid #eee;">
+              <tr>
+              <a th:href="@{/gydetail(gySeq = ${item.gySeq})}">               
                   <td>
                   <th:block th:each="gyfile : ${gyfiles}" th:if="${gyfiles}">
                   <th:block th:if="${item.gySeq} == ${gyfile.gySeq}">
-                  <img id="imgId" th:src="@{${gyfile.gyNewFileName}}" width="200px" height="200px" />			 
+                  <a th:href="@{/gydetail(gySeq = ${item.gySeq})}"> 
+                  <img id="imgId" th:src="@{${gyfile.gyNewFileName}}" width="200px" height="200px" />	
+                  </a>		 
           		 </th:block>
           		 </th:block>
+          		 <tr>
+          		 <td>
+          		 <a th:text="${item.gyTitle}" th:href="@{/gydetail(gySeq = ${item.gySeq})}"> </a> </td>
+          		 </tr>
           		 </td>
-                  <td th:text="|${item.mbId} / ${item.gyCreateAt}|" >
-                  <th:block th:text="${item.gyCreateAt}">
-                  </th:block>
-                  </td>
-                  
+          		 <tr>
+                  <td th:text="${item.mbId}" > </td>
+                  </tr>
+                  <tr>
+                  <td th:text="${item.gyCreateAt}"> </td>
+                  </tr>
               </tr>
+              </a>
 	        </th:block>   
         </tbody>
     </table>
